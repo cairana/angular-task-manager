@@ -20,9 +20,8 @@
     >
     @for(task of tasks; track task.id){ @if(task.status === "inProgress"){
 
-      <app-grid-element [task]="task" />
-      } }
-    <ng-content></ng-content>
+    <app-grid-element [task]="task" />
+    } }
   </div>
   <div
     class="snap-center min-w-full flex-none w-1/3 bg-stone-50 text-gray-700 font-semibold"
@@ -33,9 +32,8 @@
     >
     @for(task of tasks; track task.id){ @if(task.status === "completed"){
 
-      <app-grid-element [task]="task" />
-      } }
-    <ng-content></ng-content>
+    <app-grid-element [task]="task" />
+    } }
   </div>
 </div>
 
@@ -53,9 +51,8 @@
       >
       @for(task of tasks; track task.id){ @if(task.status === "todo"){
 
-        <app-grid-element [task]="task" />
-        } }
-   
+      <app-grid-element [task]="task" />
+      } }
     </div>
     <div
       class="flex flex-col snap-center min-w-full bg-stone-100 text-gray-700 font-semibold"
@@ -66,9 +63,8 @@
       >
       @for(task of tasks; track task.id){ @if(task.status === "inProgress"){
 
-        <app-grid-element [task]="task" />
-        } }
-     
+      <app-grid-element [task]="task" />
+      } }
     </div>
     <div
       class="flex flex-col snap-center min-w-full bg-stone-50 text-gray-700 font-semibold"
@@ -79,9 +75,8 @@
       >
       @for(task of tasks; track task.id){ @if(task.status === "completed"){
 
-        <app-grid-element [task]="task" />
-        } }
-     
+      <app-grid-element [task]="task" />
+      } }
     </div>
   </div>
 </div>

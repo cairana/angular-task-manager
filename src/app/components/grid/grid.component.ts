@@ -5,7 +5,6 @@ import { Task } from '../../model/task.type';
 
 @Component({
   selector: 'app-grid',
-  
   imports: [GridWrapperComponent],
   templateUrl: './grid.component.html',
   styleUrl: './grid.component.css'
