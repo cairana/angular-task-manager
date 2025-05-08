@@ -1,16 +1,17 @@
-import { AfterViewInit, Component, ElementRef, input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, input, ViewChild } from '@angular/core';
 import { Task } from '../../model/task.type';
+import { GridElementComponent } from '../grid-element/grid-element.component';
 
 @Component({
   selector: 'app-grid-wrapper',
-  imports: [],
+  standalone: true,
+  imports: [GridElementComponent],
   templateUrl: './grid-wrapper.component.html',
   styleUrl: './grid-wrapper.component.css'
 })
 export class GridWrapperComponent implements AfterViewInit {
 
-
-  tasks = input.required<Task[]>()
+  @Input() tasks: Task[] = [];
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 

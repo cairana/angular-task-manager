@@ -1,4 +1,5 @@
 module.exports = {
+   mode: 'jit',
     purge: ["./src/**/*.{js,jsx,ts,tsx,html}"], // Adjust paths based on your project structure
     darkMode: "media",
     theme: {
