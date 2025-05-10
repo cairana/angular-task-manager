@@ -22,7 +22,6 @@ export class TasksService {
   }
 
   deleteTask(taskId: number) {
-    console.log('Inside deleteTask in service', taskId);
     this.tasksSignal.set(this.tasks().filter((task) => task.id !== taskId));
   }
 }

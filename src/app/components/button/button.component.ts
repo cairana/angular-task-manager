@@ -12,8 +12,6 @@ export class ButtonComponent {
   @Input() onClick!: () => void;
 
   onMouseClick(event: MouseEvent) {
-    console.log('mouseClicked');
-
     this.onClick();
 
     event.preventDefault();

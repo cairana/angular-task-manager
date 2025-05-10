@@ -1,28 +1,30 @@
 import {
   AfterViewInit,
   Component,
-  effect,
   ElementRef,
   inject,
-  OnInit,
-  signal,
+  Input,
+  input,
   ViewChild,
 } from '@angular/core';
 import { Task, TaskStatus } from '../../model/task.type';
 import { GridElementComponent } from '../grid-element/grid-element.component';
 import { TasksService } from '../../services/tasks.service';
 import { CommonModule } from '@angular/common';
+import { FilterTasksPipe } from '../../pipes/filter-tasks.pipe';
 
 @Component({
   selector: 'app-grid-wrapper',
   standalone: true,
-  imports: [GridElementComponent, CommonModule],
+  imports: [GridElementComponent, CommonModule, FilterTasksPipe],
   providers: [],
   templateUrl: './grid-wrapper.component.html',
   styleUrl: './grid-wrapper.component.css',
 })
 export class GridWrapperComponent implements AfterViewInit {
   tasksService = inject(TasksService);
+
+  @Input() searchTerm: string = '';
 
   getTasks = () => {
     return this.tasksService.tasks();
@@ -44,10 +46,6 @@ export class GridWrapperComponent implements AfterViewInit {
   };
 
   onClickDelete = (taskId: number) => {
-    console.log('deleteTaskXXX: ', taskId);
-    console.log('this.tasksService:', this.tasksService);
-    console.log('this.tasksService.deleteTask:', this.tasksService?.deleteTask);
-
     this.tasksService?.deleteTask(taskId);
   };
 

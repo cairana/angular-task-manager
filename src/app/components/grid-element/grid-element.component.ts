@@ -1,4 +1,4 @@
-import { Component, Input, input, signal } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { TrashIconComponent } from '../trash-icon/trash-icon.component';
 import { Task } from '../../model/task.type';
 import { ButtonComponent } from '../button/button.component';
@@ -11,15 +11,12 @@ import { ButtonComponent } from '../button/button.component';
 })
 export class GridElementComponent {
   task = input.required<Task>();
-  @Input() updateTask!: (task: Task) => void; // Keep functions normal
+  @Input() updateTask!: (task: Task) => void;
   @Input() deleteTask!: (taskId: number) => void;
 
   onClickDelete = () => {
     if (this.deleteTask) {
-      console.log('onClickDelete in app-grid-element: ', this.task().id);
       this.deleteTask(this.task().id);
-    } else {
-      console.log('this.deleteTask not defined');
     }
   };
 }

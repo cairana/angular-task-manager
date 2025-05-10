@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { GridWrapperComponent } from '../grid-wrapper/grid-wrapper.component';
 import { InputComponent } from '../input/input.component';
 import { ButtonComponent } from '../button/button.component';
-import { ModalComponent } from '../modal/modal.component';
+import { ModalComponent } from '../create-task-modal/create-task-modal.component';
 import { CommonModule } from '@angular/common';
+import { FilterTasksPipe } from '../../pipes/filter-tasks.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-grid',
@@ -13,6 +15,7 @@ import { CommonModule } from '@angular/common';
     ButtonComponent,
     ModalComponent,
     CommonModule,
+    FormsModule,
   ],
   templateUrl: './grid.component.html',
   styleUrl: './grid.component.css',
@@ -22,12 +25,13 @@ export class GridComponent {
 
   isModalVisible = false;
 
+  searchTerm = signal('');
+
   showModal = () => {
     this.isModalVisible = true;
   };
 
   hideModal = () => {
-    console.log('hideModal');
     this.isModalVisible = false;
   };
 }

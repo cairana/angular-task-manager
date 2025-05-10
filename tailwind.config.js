@@ -1,14 +1,15 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-   mode: 'jit',
-    purge: ["./src/**/*.{js,jsx,ts,tsx,html}"], // Adjust paths based on your project structure
-    darkMode: "media",
-    theme: {
-        extend: {
-          fontFamily: {
-            sans: ['sans-serif'], 
-          },
-        },
+  content: ["./src/**/*.{html,ts,tsx}", "./src/app/components/**/*.{html,ts}"],
+  theme: {
+    extend: {
+      backgroundColor: {
+        sandyGreen: "oklch(61.92% 0.039 139.98)",
       },
-    variants: { extend: {} },
-    plugins: [],
-  };
+      fontFamily: {
+        sans: ["sans-serif"],
+      },
+    },
+  },
+  plugins: [],
+};
