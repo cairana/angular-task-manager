@@ -3,7 +3,7 @@
 >
   <span class="flex direction-row justify-between">
     <p class="text-xl text-gray-900">{{ task().name }}</p>
-    <app-icon-button [task]="task()" [onClick]="handleClick"> <app-trash-icon /></app-icon-button
+    <app-icon-button [task]="task()" [onClick]="onClickDelete"> <app-trash-icon /></app-icon-button
   ></span>
   <span class="text-xs text-gray-900/50">Created: {{ task().created }}</span>
   <span class="py-2">{{ task().description }}</span>

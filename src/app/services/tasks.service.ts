@@ -1,14 +1,30 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { MOCK_TASKS } from '../../mock-tasks';
+import { Task } from '../model/task.type';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TasksService {
+  private tasksSignal = signal<Task[]>(MOCK_TASKS);
 
-  constructor() { }
+  tasks = this.tasksSignal;
 
-  getTasks() {
-    return MOCK_TASKS
+  constructor() {}
+
+  addTask(task: Task) {
+    this.tasksSignal.set([...this.tasksSignal(), task]);
+  }
+  updateTask(updatedTask: Task) {
+    this.tasksSignal.set(
+      this.tasks().map((task) =>
+        task.id === updatedTask.id ? updatedTask : task
+      )
+    );
+  }
+
+  deleteTask(taskId: number) {
+    console.log('Inside deleteTask in service', taskId);
+    this.tasksSignal.set(this.tasks().filter((task) => task.id !== taskId));
   }
 }

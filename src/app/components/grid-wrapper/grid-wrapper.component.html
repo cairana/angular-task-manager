@@ -6,9 +6,11 @@
       class="text-xl bg-gray-500 block p-2 text-gray-100 text-center rounded-t-sm"
       >Todo</span
     >
-    @for(task of tasks; track task.id){ @if(task.status === "todo"){
 
-    <app-grid-element [task]="task" />
+    @for(task of tasksService.tasks(); track task.id){ @if(task.status ===
+    "todo"){
+
+    <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
     } }
   </div>
   <div
@@ -18,9 +20,10 @@
       class="text-xl bg-gray-500 block p-2 text-gray-100 text-center rounded-t-sm"
       >In Progress</span
     >
-    @for(task of tasks; track task.id){ @if(task.status === "inProgress"){
+    @for(task of tasksService.tasks(); track task.id){ @if(task.status ===
+    "inProgress"){
 
-    <app-grid-element [task]="task" />
+    <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
     } }
   </div>
   <div
@@ -30,9 +33,10 @@
       class="text-xl bg-gray-500 block p-2 text-gray-100 text-center rounded-t-sm"
       >Completed</span
     >
-    @for(task of tasks; track task.id){ @if(task.status === "completed"){
+    @for(task of tasksService.tasks(); track task.id){ @if(task.status ===
+    "completed"){
 
-    <app-grid-element [task]="task" />
+    <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
     } }
   </div>
 </div>
@@ -49,9 +53,10 @@
         class="text-xl bg-gray-500 min-w-full block p-2 text-gray-100 text-center rounded-t-sm"
         >Todo</span
       >
-      @for(task of tasks; track task.id){ @if(task.status === "todo"){
+      @for(task of tasksService.tasks(); track task.id){ @if(task.status ===
+      "todo"){
 
-      <app-grid-element [task]="task" />
+      <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
       } }
     </div>
     <div
@@ -61,9 +66,10 @@
         class="flex text-xl bg-gray-500 block p-2 min-w-full text-gray-100 text-center rounded-t-sm"
         >In Progress</span
       >
-      @for(task of tasks; track task.id){ @if(task.status === "inProgress"){
+      @for(task of tasksService.tasks(); track task.id){ @if(task.status ===
+      "inProgress"){
 
-      <app-grid-element [task]="task" />
+      <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
       } }
     </div>
     <div
@@ -73,9 +79,10 @@
         class="text-xl bg-gray-500 block min-w-full p-2 text-gray-100 text-center rounded-t-sm"
         >Completed</span
       >
-      @for(task of tasks; track task.id){ @if(task.status === "completed"){
+      @for(task of tasksService.tasks(); track task.id){ @if(task.status ===
+      "completed"){
 
-      <app-grid-element [task]="task" />
+      <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
       } }
     </div>
   </div>

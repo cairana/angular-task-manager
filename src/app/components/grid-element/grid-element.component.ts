@@ -1,8 +1,7 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, Input, input, signal } from '@angular/core';
 import { TrashIconComponent } from '../trash-icon/trash-icon.component';
 import { Task } from '../../model/task.type';
 import { IconButtonComponent } from '../icon-button/icon-button.component';
-
 
 @Component({
   selector: 'app-grid-element',
@@ -11,11 +10,20 @@ import { IconButtonComponent } from '../icon-button/icon-button.component';
   styleUrl: './grid-element.component.css',
 })
 export class GridElementComponent {
+  task = input.required<Task>();
+  @Input() updateTask!: (task: Task) => void; // Keep functions normal
+  @Input() deleteTask!: (taskId: number) => void;
 
+  onClickDelete = () => {
+    if (this.deleteTask) {
+      console.log('onClickDelete in app-grid-element: ', this.task().id);
+      this.deleteTask(this.task().id);
+    } else {
+      console.log('this.deleteTask not defined');
+    }
+  };
 
-  task = input.required<Task>()
-
-  handleClick = () => {
-    console.log("clicked: ", this.task())
-  }
+  // markCompleted() {
+  //   this.updateTask({ ...this.task, status: 'completed' });
+  // }
 }
