@@ -1,1 +1,3 @@
+<app-button [onClick]="showModal">Create task</app-button>
+<app-modal *ngIf="isModalVisible" (close)="hideModal()" ><app-input /></app-modal>
 <app-grid-wrapper />

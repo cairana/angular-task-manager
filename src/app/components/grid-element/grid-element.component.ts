@@ -1,11 +1,11 @@
 import { Component, Input, input, signal } from '@angular/core';
 import { TrashIconComponent } from '../trash-icon/trash-icon.component';
 import { Task } from '../../model/task.type';
-import { IconButtonComponent } from '../icon-button/icon-button.component';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-grid-element',
-  imports: [TrashIconComponent, IconButtonComponent],
+  imports: [TrashIconComponent, ButtonComponent],
   templateUrl: './grid-element.component.html',
   styleUrl: './grid-element.component.css',
 })
@@ -22,8 +22,4 @@ export class GridElementComponent {
       console.log('this.deleteTask not defined');
     }
   };
-
-  // markCompleted() {
-  //   this.updateTask({ ...this.task, status: 'completed' });
-  // }
 }

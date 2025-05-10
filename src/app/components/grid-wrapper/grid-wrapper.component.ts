@@ -24,6 +24,10 @@ import { CommonModule } from '@angular/common';
 export class GridWrapperComponent implements AfterViewInit {
   tasksService = inject(TasksService);
 
+  getTasks = () => {
+    return this.tasksService.tasks();
+  };
+
   addTask = (name: string, description: string) => {
     const newTask: Task = {
       id: Date.now(),

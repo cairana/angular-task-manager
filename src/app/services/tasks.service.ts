@@ -10,8 +10,6 @@ export class TasksService {
 
   tasks = this.tasksSignal;
 
-  constructor() {}
-
   addTask(task: Task) {
     this.tasksSignal.set([...this.tasksSignal(), task]);
   }

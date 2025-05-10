@@ -2,25 +2,20 @@ import { Component, Input, input } from '@angular/core';
 import { Task } from '../../model/task.type';
 
 @Component({
-  selector: 'app-icon-button',
+  selector: 'app-button',
   imports: [],
   standalone: true,
-  templateUrl: './icon-button.component.html',
-  styleUrl: './icon-button.component.css'
+  templateUrl: './button.component.html',
+  styleUrl: './button.component.css',
 })
-export class IconButtonComponent {
-
-  task = input.required<Task>()
-
+export class ButtonComponent {
   @Input() onClick!: () => void;
 
   onMouseClick(event: MouseEvent) {
-    console.log("mouseClicked")
+    console.log('mouseClicked');
 
     this.onClick();
 
     event.preventDefault();
   }
 }
-
-

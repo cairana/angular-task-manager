@@ -1,9 +1,6 @@
 @import "tailwindcss";
 
 main {
-    margin-top: 50px; 
-    padding: 16px; 
-    
+  margin-top: 50px;
+  padding: 16px;
 }
-
-

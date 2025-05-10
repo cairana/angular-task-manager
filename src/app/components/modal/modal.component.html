@@ -1,0 +1,16 @@
+<div class="fixed inset-0 flex items-center justify-center bg-black/50">
+  <div
+    (click)="$event.stopPropagation()"
+    class="bg-white rounded-lg border-2 border-gray-300"
+  >
+    <h2 class="text-xl bg-gray-500 block p-2 text-gray-100 text-center rounded-t-sm">Add task</h2>
+    <div class="p-2 m-2">
+
+        <p class="mb-2"><app-input></app-input></p>
+    </div>
+    <div class="flex justify-end">
+      <app-button [onClick]="saveTask">Save</app-button>
+      <app-button [onClick]="closeModal">Close</app-button>
+    </div>
+  </div>
+</div>
