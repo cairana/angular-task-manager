@@ -41,7 +41,7 @@ export class GridWrapperComponent implements AfterViewInit {
     this.tasksService?.addTask(newTask);
   };
 
-  updateTask = (task: Task, status: TaskStatus) => {
+  onClickUpdate = (task: Task, status: TaskStatus) => {
     this.tasksService?.updateTask({ ...task, status });
   };
 

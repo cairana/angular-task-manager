@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { TasksService } from '../../services/tasks.service';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +12,6 @@ export class ModalComponent {
   tasksService = inject(TasksService);
 
   @Output() close = new EventEmitter<void>();
-  @Output() save = new EventEmitter<void>();
 
   taskName = '';
   description = '';
@@ -22,7 +21,6 @@ export class ModalComponent {
   };
 
   saveTask = (): void => {
-    this.save.emit();
     this.tasksService.addTask({
       created: Date(),
       description: this.description,

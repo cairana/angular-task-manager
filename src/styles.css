@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 main {
-  margin-top: 50px;
+  margin: 26px;
   padding: 16px;
   height: 93vh;
 }

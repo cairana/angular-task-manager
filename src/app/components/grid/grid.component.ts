@@ -4,7 +4,6 @@ import { InputComponent } from '../input/input.component';
 import { ButtonComponent } from '../button/button.component';
 import { ModalComponent } from '../create-task-modal/create-task-modal.component';
 import { CommonModule } from '@angular/common';
-import { FilterTasksPipe } from '../../pipes/filter-tasks.pipe';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -23,10 +22,9 @@ import { FormsModule } from '@angular/forms';
 export class GridComponent {
   title = 'angular-task-manager';
 
-  isModalVisible = false;
-
   searchTerm = signal('');
 
+  isModalVisible = false;
   showModal = () => {
     this.isModalVisible = true;
   };

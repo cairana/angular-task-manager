@@ -9,12 +9,14 @@ import { Component } from '@angular/core';
         fill: #4b5563;
       }
       .icon:hover {
-        fill: #ffffff;
+        @media (width >= 40rem) {
+          fill: #ffffff;
+        }
       }
     </style>
     <svg
       id="Layer_1"
-      class="h-6 w-6 icon"
+      class="h-5 w-5 icon cursor-pointer" 
       version="1.1"
       viewBox="0 0 64 64"
       xmlns="http://www.w3.org/2000/svg"
