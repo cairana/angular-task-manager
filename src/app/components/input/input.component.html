@@ -1,7 +1,10 @@
-<label for="value" class="flex flex-col">
+<label
+  for="value"
+  class="flex flex-col rounded-sm border-1 border-sky-700/30 focus:border-cyan-500 m-1"
+>
   <span class="text-sm font-medium text-gray-700">{{ label }}</span>
   <input
-    class="m-1 p-1 rounded-sm border-1 border-sky-700/30 focus:border-cyan-500 focus:outline-none"
+    class="p-1 focus:outline-none"
     id="value"
     type="text"
     [(ngModel)]="value"

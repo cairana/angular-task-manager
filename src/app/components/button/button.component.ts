@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, effect, Input, input } from '@angular/core';
 import { Task } from '../../model/task.type';
 
 @Component({
@@ -10,6 +10,8 @@ import { Task } from '../../model/task.type';
 })
 export class ButtonComponent {
   @Input() onClick!: () => void;
+
+  buttonDisabled = input(false);
 
   onMouseClick(event: MouseEvent) {
     this.onClick();

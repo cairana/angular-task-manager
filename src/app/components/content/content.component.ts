@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AddIconComponent } from '../../icons/add-icon.component';
 
 @Component({
-  selector: 'app-grid',
+  selector: 'app-content',
   imports: [
     GridWrapperComponent,
     InputComponent,
@@ -18,9 +18,9 @@ import { AddIconComponent } from '../../icons/add-icon.component';
     FormsModule,
     AddIconComponent,
   ],
-  templateUrl: './grid.component.html',
+  templateUrl: './content.component.html',
 })
-export class GridComponent {
+export class ContentComponent {
   title = 'angular-task-manager';
 
   searchTerm = signal('');

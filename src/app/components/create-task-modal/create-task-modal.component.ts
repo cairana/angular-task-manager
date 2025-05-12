@@ -16,6 +16,10 @@ export class ModalComponent {
   taskName = '';
   description = '';
 
+  isButtonDisabled = () => {
+    return this.taskName.length === 0 || this.description.length === 0;
+  };
+
   closeModal = (): void => {
     this.close.emit();
   };

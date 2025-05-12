@@ -1,35 +1,41 @@
-<div class="fixed inset-0 flex items-center justify-center bg-black/50 ">
+<div class="fixed inset-0 flex items-center justify-center bg-black/50">
   <div
     (click)="$event.stopPropagation()"
     class="bg-white rounded-lg border-2 border-gray-300 sm:w-100"
   >
-    <h2 class="text-xl bg-gray-500 block p-2 text-gray-100 text-center rounded-t-sm">Add task</h2>
+    <h2
+      class="text-xl bg-gray-500 block p-2 text-gray-100 text-center rounded-t-sm"
+    >
+      Add task
+    </h2>
     <div class="p-2 m-2">
-
-        <p class="mb-2"><span class="flex flex-col gap-2">
-  <label for="taskName" class="flex flex-col">
-    <span class="text-sm font-medium text-gray-700">Task name:</span>
-    <input
-      class="m-1 p-1 rounded-sm border-1 border-sky-700/30 focus:border-cyan-500 focus:outline-none"
-      id="taskName"
-      type="text"
-      [(ngModel)]="taskName"
-    />
-  </label>
-  <label for="taskDescription" class="flex flex-col">
-    <span class="text-sm font-medium text-gray-700">Description:</span>
-    <textarea
-      rows="5"
-      class="m-1 p-1 rounded-sm border-1 border-sky-700/30 focus:border-cyan-500 focus:outline-none"
-      id="taskDescription"
-      [(ngModel)]="description"
-    ></textarea>
-  </label>
-</span>
-</p>
+      <p class="mb-2">
+        <span class="flex flex-col gap-2">
+          <label for="taskName" class="flex flex-col">
+            <span class="text-sm font-medium text-gray-700">Task name:</span>
+            <input
+              class="m-1 p-1 rounded-sm border-1 border-sky-700/30 focus:border-cyan-500 focus:outline-none"
+              id="taskName"
+              type="text"
+              [(ngModel)]="taskName"
+            />
+          </label>
+          <label for="taskDescription" class="flex flex-col">
+            <span class="text-sm font-medium text-gray-700">Description:</span>
+            <textarea
+              rows="5"
+              class="m-1 p-1 rounded-sm border-1 border-sky-700/30 focus:border-cyan-500 focus:outline-none"
+              id="taskDescription"
+              [(ngModel)]="description"
+            ></textarea>
+          </label>
+        </span>
+      </p>
     </div>
     <div class="flex justify-end">
-      <app-button [onClick]="saveTask">Save</app-button>
+      <app-button [onClick]="saveTask" [buttonDisabled]="isButtonDisabled()"
+        >Save</app-button
+      >
       <app-button [onClick]="closeModal">Close</app-button>
     </div>
   </div>
