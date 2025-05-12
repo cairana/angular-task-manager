@@ -8,18 +8,16 @@ import {
 import { Task, TaskStatus } from '../../model/task.type';
 import { ButtonComponent } from '../button/button.component';
 import { TrashIconComponent } from '../../icons/trash-icon.component';
-import { DotsIconComponent } from '../../icons/dots-icon.component';
 import { CommonModule } from '@angular/common';
-import { SelectorPopupComponent } from '../selector-popup/selector-popup.component';
+import { StatusSelectorComponent } from '../status-selector/status-selector.component';
 
 @Component({
   selector: 'app-grid-element',
   imports: [
     TrashIconComponent,
     ButtonComponent,
-    DotsIconComponent,
     CommonModule,
-    SelectorPopupComponent,
+    StatusSelectorComponent,
   ],
   templateUrl: './grid-element.component.html',
   styleUrl: './grid-element.component.css',

@@ -5,6 +5,7 @@ import { ButtonComponent } from '../button/button.component';
 import { ModalComponent } from '../create-task-modal/create-task-modal.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AddIconComponent } from '../../icons/add-icon.component';
 
 @Component({
   selector: 'app-grid',
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     ModalComponent,
     CommonModule,
     FormsModule,
+    AddIconComponent,
   ],
   templateUrl: './grid.component.html',
   styleUrl: './grid.component.css',

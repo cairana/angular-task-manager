@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SelectorPopupComponent } from './selector-popup.component';
+import { StatusSelectorComponent } from './status-selector.component';
 
-describe('SelectorPopupComponent', () => {
-  let component: SelectorPopupComponent;
-  let fixture: ComponentFixture<SelectorPopupComponent>;
+describe('StatusSelectorComponent', () => {
+  let component: StatusSelectorComponent;
+  let fixture: ComponentFixture<StatusSelectorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SelectorPopupComponent]
+      imports: [StatusSelectorComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SelectorPopupComponent);
+    fixture = TestBed.createComponent(StatusSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

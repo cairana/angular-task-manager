@@ -1,0 +1,16 @@
+<select
+  class="flex cursor-pointer text-sm text-gray-900 m-1 p-1 bg-white border-1 border-sky-700/30 rounded-sm"
+ [value]="task().status"
+  (change)="updateTaskStatus($event)"
+  >
+  @for(status of statuses; track status.id) {
+  <option
+    [disabled]="status.id === task().status"
+    [selected]="task().status === status.id"
+    [value]="status.id"
+  >
+    {{ status.displayText }}
+  </option>
+
+  }
+</select>

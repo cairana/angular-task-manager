@@ -3,19 +3,11 @@
 >
   <span class="flex direction-row justify-between">
     <p class="text-xl text-gray-900">{{ task().name }}</p>
-    <span>
-      <app-button [onClick]="onClickOpenSelector">
-        <app-dots-icon
-      /></app-button>
+    <span class="flex align-center">
+      <app-status-selector [task]="task()" />
       <app-button [onClick]="onClickDelete"> <app-trash-icon /></app-button>
     </span>
   </span>
   <span class="text-xs text-gray-900/50">Created: {{ task().created }}</span>
   <span class="py-2">{{ task().description }}</span>
-  <app-selector-popup
-    (close)="onClickCloseSelector()"
-    [show]="this.openSelector"
-    [task]="task()"
-
-  />
 </div>

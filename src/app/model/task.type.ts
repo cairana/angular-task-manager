@@ -7,4 +7,14 @@ export type Task = {
 };
 
 export type TaskStatus = 'todo' | 'inProgress' | 'completed';
-export const StatusSelection: string[] = ['todo', 'inProgress', 'completed'];
+
+export interface StatusOption {
+  id: string;
+  displayText: string;
+}
+
+export const StatusSelection: StatusOption[] = [
+  { id: 'todo', displayText: 'Todo' },
+  { id: 'inProgress', displayText: 'In Progress' },
+  { id: 'completed', displayText: 'Completed' },
+];
