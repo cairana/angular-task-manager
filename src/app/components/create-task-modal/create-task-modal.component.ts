@@ -21,8 +21,10 @@ export class ModalComponent {
   };
 
   saveTask = (): void => {
+    const timestamp = new Date().toISOString();
+
     this.tasksService.addTask({
-      created: Date(),
+      created: timestamp,
       description: this.description,
       id: this.tasksService.tasks().length + 1,
       name: this.taskName,

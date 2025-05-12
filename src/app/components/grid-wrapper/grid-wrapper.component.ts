@@ -4,14 +4,14 @@ import {
   ElementRef,
   inject,
   Input,
-  input,
   ViewChild,
 } from '@angular/core';
-import { Task, TaskStatus } from '../../model/task.type';
+import { Task } from '../../model/task.type';
 import { GridElementComponent } from '../grid-element/grid-element.component';
 import { TasksService } from '../../services/tasks.service';
 import { CommonModule } from '@angular/common';
 import { FilterTasksPipe } from '../../pipes/filter-tasks.pipe';
+import { TaskStatus } from '../../model/status.types';
 
 @Component({
   selector: 'app-grid-wrapper',
@@ -19,7 +19,6 @@ import { FilterTasksPipe } from '../../pipes/filter-tasks.pipe';
   imports: [GridElementComponent, CommonModule, FilterTasksPipe],
   providers: [],
   templateUrl: './grid-wrapper.component.html',
-  styleUrl: './grid-wrapper.component.css',
 })
 export class GridWrapperComponent implements AfterViewInit {
   tasksService = inject(TasksService);

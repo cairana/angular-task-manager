@@ -1,20 +1,13 @@
-import {
-  Component,
-  EventEmitter,
-  inject,
-  input,
-  Input,
-  Output,
-} from '@angular/core';
-import { StatusSelection, Task, TaskStatus } from '../../model/task.type';
+import { Component, inject, input } from '@angular/core';
+import { StatusSelection, Task } from '../../model/task.type';
 import { CommonModule } from '@angular/common';
 import { TasksService } from '../../services/tasks.service';
+import { TaskStatus } from '../../model/status.types';
 
 @Component({
   selector: 'app-status-selector',
   imports: [CommonModule],
   templateUrl: './status-selector.component.html',
-  styleUrl: './status-selector.component.css',
 })
 export class StatusSelectorComponent {
   tasksService = inject(TasksService);

@@ -19,7 +19,6 @@ import { AddIconComponent } from '../../icons/add-icon.component';
     AddIconComponent,
   ],
   templateUrl: './grid.component.html',
-  styleUrl: './grid.component.css',
 })
 export class GridComponent {
   title = 'angular-task-manager';

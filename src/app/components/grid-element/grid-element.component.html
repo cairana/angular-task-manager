@@ -8,6 +8,8 @@
       <app-button [onClick]="onClickDelete"> <app-trash-icon /></app-button>
     </span>
   </span>
-  <span class="text-xs text-gray-900/50">Created: {{ task().created }}</span>
+  <span class="text-xs text-gray-900/50"
+    >Created: {{ task().created | date : "dd/MM/yyyy HH:mm" }}</span
+  >
   <span class="py-2">{{ task().description }}</span>
 </div>

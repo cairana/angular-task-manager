@@ -1,13 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
   imports: [FormsModule],
   templateUrl: './input.component.html',
-  styleUrl: './input.component.css',
 })
 export class InputComponent {
-  taskName = '';
-  description = '';
+  @Input() value: string = '';
+  @Input() label: string = '';
+
+  @Output() valueChange = new EventEmitter<string>();
+
+  onValueChange(newValue: string) {
+    this.value = newValue;
+    this.valueChange.emit(newValue);
+  }
 }

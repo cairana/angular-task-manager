@@ -1,0 +1,13 @@
+<span class="flex flex-col gap-2">
+  <app-input [label]="'Task name:'" [(value)]="taskName" />
+
+  <label for="taskDescription" class="flex flex-col">
+    <span class="text-sm font-medium text-gray-700">Description:</span>
+    <textarea
+      rows="5"
+      class="m-1 p-1 rounded-sm border-1 border-sky-700/30 focus:border-cyan-500 focus:outline-none"
+      id="taskDescription"
+      [(ngModel)]="description"
+    ></textarea>
+  </label>
+</span>

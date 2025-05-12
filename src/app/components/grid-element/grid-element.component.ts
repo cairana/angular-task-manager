@@ -5,11 +5,12 @@ import {
   Input,
   input,
 } from '@angular/core';
-import { Task, TaskStatus } from '../../model/task.type';
+import { Task } from '../../model/task.type';
 import { ButtonComponent } from '../button/button.component';
 import { TrashIconComponent } from '../../icons/trash-icon.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { StatusSelectorComponent } from '../status-selector/status-selector.component';
+import { TaskStatus } from '../../model/status.types';
 
 @Component({
   selector: 'app-grid-element',
@@ -18,9 +19,9 @@ import { StatusSelectorComponent } from '../status-selector/status-selector.comp
     ButtonComponent,
     CommonModule,
     StatusSelectorComponent,
+    DatePipe,
   ],
   templateUrl: './grid-element.component.html',
-  styleUrl: './grid-element.component.css',
 })
 export class GridElementComponent {
   openSelector = false;
