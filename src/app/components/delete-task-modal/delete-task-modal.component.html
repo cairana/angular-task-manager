@@ -1,0 +1,35 @@
+<div class="fixed inset-0 flex items-center justify-center bg-black/50">
+  <div
+    (click)="$event.stopPropagation()"
+    class="bg-white rounded-lg border-2 border-gray-300 sm:w-100"
+  >
+    <h2
+      class="text-xl bg-gray-500 block p-2 text-gray-100 text-center rounded-t-sm"
+    >
+      Delete task
+    </h2>
+    <div class="p-2 m-2">
+      <p class="mb-2"></p>
+      <div
+        class="relative flex flex-col border-3 border-x-sky-900/50 border-y-sky-700/30 rounded-sm bg-zinc-50 m-2 p-1"
+      >
+        <span class="flex direction-row justify-between">
+          <p class="text-xl text-gray-900">
+            Do you want to delete: {{ taskToDelete()?.name || "" }}
+          </p>
+        </span>
+        <span class="text-xs text-gray-900/50"
+          >Created:
+          {{ taskToDelete()?.created | date : "dd/MM/yyyy HH:mm" }}</span
+        >
+        <span class="py-2">{{ taskToDelete()?.description }}</span>
+      </div>
+    </div>
+    <div class="flex justify-end">
+      <app-button [onClick]="deleteTask" [buttonDisabled]="false"
+        >Delete</app-button
+      >
+      <app-button [onClick]="closeModal">Cancel</app-button>
+    </div>
+  </div>
+</div>

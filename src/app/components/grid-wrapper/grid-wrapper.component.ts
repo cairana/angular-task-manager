@@ -6,13 +6,10 @@ import {
   Input,
   ViewChild,
 } from '@angular/core';
-import { Task } from '../../model/task.type';
 import { GridElementComponent } from '../grid-element/grid-element.component';
 import { TasksService } from '../../services/tasks.service';
 import { CommonModule } from '@angular/common';
 import { FilterTasksPipe } from '../../pipes/filter-tasks.pipe';
-import { TaskStatus } from '../../model/status.types';
-import { ToastService, ToastType } from '../../services/toast.service';
 
 @Component({
   selector: 'app-grid-wrapper',
@@ -23,17 +20,11 @@ import { ToastService, ToastType } from '../../services/toast.service';
 })
 export class GridWrapperComponent implements AfterViewInit {
   tasksService = inject(TasksService);
-  toastService = inject(ToastService);
 
   @Input() searchTerm: string = '';
 
   getTasks = () => {
     return this.tasksService.tasks();
-  };
-
-  onClickDelete = (taskId: string) => {
-    this.tasksService?.deleteTask(taskId);
-    this.toastService.showToast(`Task deleted - ${taskId}`, ToastType.WARNING);
   };
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;

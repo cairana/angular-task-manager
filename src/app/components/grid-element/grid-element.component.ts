@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   HostListener,
+  inject,
   Input,
   input,
   Signal,
@@ -12,7 +13,8 @@ import { ButtonComponent } from '../button/button.component';
 import { TrashIconComponent } from '../../icons/trash-icon.component';
 import { CommonModule, DatePipe } from '@angular/common';
 import { StatusSelectorComponent } from '../status-selector/status-selector.component';
-import { TaskStatus } from '../../model/status.types';
+import { DeleteTaskModalComponent } from '../delete-task-modal/delete-task-modal.component';
+import { ModalService } from '../../services/modal.service';
 
 @Component({
   selector: 'app-grid-element',
@@ -28,18 +30,9 @@ import { TaskStatus } from '../../model/status.types';
 export class GridElementComponent {
   openSelector = false;
 
-  constructor(private elementRef: ElementRef) {}
+  modalService = inject(ModalService);
 
   @Input() task!: Task;
-
-  @Input() deleteTask!: (taskId: string) => void;
-
-  onClickDelete = () => {
-    const currentTask = this.task;
-    if (this.deleteTask && currentTask) {
-      this.deleteTask(currentTask.id);
-    }
-  };
 
   onClickOpenSelector = () => {
     this.openSelector = true;
@@ -49,11 +42,7 @@ export class GridElementComponent {
     this.openSelector = false;
   };
 
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent): void {
-    const clickedInside = this.elementRef.nativeElement.contains(event.target);
-    if (!clickedInside) {
-      this.openSelector = false;
-    }
-  }
+  onClickDeleteTask = () => {
+    this.modalService.showDeleteModal(this.task);
+  };
 }

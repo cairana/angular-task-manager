@@ -1,9 +1,8 @@
 <span class="flex m-2 align-center items-center justify-between text-center">
-  <app-button [onClick]="showModal">
+  <app-button [onClick]="onClickOpenModal">
     <app-add-icon />
     <span class="hidden sm:inline px-1"> Create task</span></app-button
   >
-
   <input
     class="text-sm text-gray-900 m-1 p-1 rounded-sm border-1 border-sky-700/30 focus:border-cyan-500 focus:outline-none"
     id="taskName"
@@ -13,6 +12,12 @@
   />
 </span>
 <app-grid-wrapper [searchTerm]="searchTerm()" />
-<app-modal *ngIf="isModalVisible" (close)="hideModal()"
+<app-create-task-modal
+  *ngIf="modalService.isModalVisible()"
+  (close)="modalService.hideModal()"
   ><app-input
-/></app-modal>
+/></app-create-task-modal>
+<app-delete-task-modal
+  *ngIf="modalService.isDeleteModalVisible()"
+  (close)="modalService.hideDeleteModal()"
+></app-delete-task-modal>

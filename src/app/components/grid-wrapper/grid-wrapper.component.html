@@ -10,7 +10,7 @@
     @for(task of tasksService.tasks() | filterTasks: searchTerm; track task.id){
     @if(task.status === "todo"){
 
-    <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
+    <app-grid-element [task]="task" />
     } }
   </div>
   <div
@@ -23,7 +23,7 @@
     @for(task of tasksService.tasks() | filterTasks: searchTerm; track task.id){
     @if(task.status === "inProgress"){
 
-    <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
+    <app-grid-element [task]="task" />
     } }
   </div>
   <div
@@ -36,7 +36,7 @@
     @for(task of tasksService.tasks() | filterTasks: searchTerm; track task.id){
     @if(task.status === "completed"){
 
-    <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
+    <app-grid-element [task]="task" />
     } }
   </div>
 </div>
@@ -56,7 +56,7 @@
       @for(task of tasksService.tasks()| filterTasks: searchTerm; track
       task.id){ @if(task.status === "todo"){
 
-      <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
+      <app-grid-element [task]="task" />
       } }
     </div>
     <div
@@ -69,7 +69,7 @@
       @for(task of tasksService.tasks()| filterTasks: searchTerm; track
       task.id){ @if(task.status === "inProgress"){
 
-      <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
+      <app-grid-element [task]="task" />
       } }
     </div>
     <div
@@ -82,7 +82,7 @@
       @for(task of tasksService.tasks()| filterTasks: searchTerm; track
       task.id){ @if(task.status === "completed"){
 
-      <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
+      <app-grid-element [task]="task" />
       } }
     </div>
   </div>

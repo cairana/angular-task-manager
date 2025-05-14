@@ -1,11 +1,13 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { GridWrapperComponent } from '../grid-wrapper/grid-wrapper.component';
 import { InputComponent } from '../input/input.component';
 import { ButtonComponent } from '../button/button.component';
-import { ModalComponent } from '../create-task-modal/create-task-modal.component';
+import { CreateTaskModalComponent } from '../create-task-modal/create-task-modal.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AddIconComponent } from '../../icons/add-icon.component';
+import { ModalService } from '../../services/modal.service';
+import { DeleteTaskModalComponent } from '../delete-task-modal/delete-task-modal.component';
 
 @Component({
   selector: 'app-content',
@@ -13,24 +15,21 @@ import { AddIconComponent } from '../../icons/add-icon.component';
     GridWrapperComponent,
     InputComponent,
     ButtonComponent,
-    ModalComponent,
+    CreateTaskModalComponent,
     CommonModule,
     FormsModule,
     AddIconComponent,
+    DeleteTaskModalComponent,
   ],
   templateUrl: './content.component.html',
 })
 export class ContentComponent {
+  modalService = inject(ModalService);
   title = 'angular-task-manager';
 
   searchTerm = signal('');
 
-  isModalVisible = false;
-  showModal = () => {
-    this.isModalVisible = true;
-  };
-
-  hideModal = () => {
-    this.isModalVisible = false;
+ onClickOpenModal = () => {
+    this.modalService.showModal();
   };
 }
