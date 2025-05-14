@@ -1,6 +1,7 @@
 <button
+  [disabled]="buttonDisabled()"
   (click)="onMouseClick($event)"
-  class="flex align-center text-sm text-gray-900 hover:bg-blue-800/60 hover:text-white m-1 p-1 rounded-sm border-1 border-sky-700/30"
+  class="flex align-center text-sm disabled:text-gray-700 disabled:bg-gray-200 disabled:border-gray-200 disabled:bg-gray-50 text-gray-900 hover:bg-blue-800/60 hover:text-white disabled:hover:bg-gray-200 disabled:hover:text-gray-700 shadow m-1 p-1 rounded-sm border-1 border-sky-700/30"
 >
   <ng-content></ng-content>
 </button>

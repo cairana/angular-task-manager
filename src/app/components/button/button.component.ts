@@ -16,4 +16,6 @@ export class ButtonComponent {
 
     event.preventDefault();
   }
+
+   buttonDisabled = input(false);
 }
