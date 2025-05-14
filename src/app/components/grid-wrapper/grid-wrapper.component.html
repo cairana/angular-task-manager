@@ -10,7 +10,7 @@
     @for(task of tasksService.tasks() | filterTasks: searchTerm; track task.id){
     @if(task.status === "todo"){
 
-    <app-grid-element [task]="task" [deleteTask]="onClickDelete" [updateTask]="onClickUpdate" />
+    <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
     } }
   </div>
   <div

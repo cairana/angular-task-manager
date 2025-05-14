@@ -4,6 +4,8 @@ import {
   HostListener,
   Input,
   input,
+  Signal,
+  signal,
 } from '@angular/core';
 import { Task } from '../../model/task.type';
 import { ButtonComponent } from '../button/button.component';
@@ -28,20 +30,14 @@ export class GridElementComponent {
 
   constructor(private elementRef: ElementRef) {}
 
-  task = input.required<Task>();
+  @Input() task!: Task;
 
-  @Input() updateTask!: (task: Task, status: TaskStatus) => void;
-  @Input() deleteTask!: (taskId: number) => void;
-
-  onClickUpdate = (status: TaskStatus) => {
-    if (this.updateTask) {
-      this.updateTask(this.task(), status);
-    }
-  };
+  @Input() deleteTask!: (taskId: string) => void;
 
   onClickDelete = () => {
-    if (this.deleteTask) {
-      this.deleteTask(this.task().id);
+    const currentTask = this.task;
+    if (this.deleteTask && currentTask) {
+      this.deleteTask(currentTask.id);
     }
   };
 

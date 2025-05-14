@@ -1,8 +1,9 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, Input, input } from '@angular/core';
 import { StatusSelection, Task } from '../../model/task.type';
 import { CommonModule } from '@angular/common';
 import { TasksService } from '../../services/tasks.service';
 import { TaskStatus } from '../../model/status.types';
+import { ToastService, ToastType } from '../../services/toast.service';
 
 @Component({
   selector: 'app-status-selector',
@@ -11,10 +12,10 @@ import { TaskStatus } from '../../model/status.types';
 })
 export class StatusSelectorComponent {
   tasksService = inject(TasksService);
+  toastService = inject(ToastService);
 
   statuses = StatusSelection;
-
-  task = input.required<Task>();
+  @Input() task!: Task;
 
   updateTaskStatus = ($event: Event) => {
     const target = $event.target as HTMLSelectElement;
@@ -24,6 +25,11 @@ export class StatusSelectorComponent {
     }
 
     const newStatus = value as TaskStatus;
-    this.tasksService.updateTask({ ...this.task(), status: newStatus });
+    this.tasksService.updateTask({ ...this.task, status: newStatus });
+
+    this.toastService.showToast(
+      `Task updated successfully - ${newStatus}`,
+      ToastType.INFO
+    );
   };
 }

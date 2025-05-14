@@ -1,7 +1,7 @@
 import { StatusOption, TaskStatus } from './status.types';
 
 export type Task = {
-  id: number;
+  id: string;
   name: string;
   description: string;
   created: string;

@@ -2,6 +2,9 @@ import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { TasksService } from '../../services/tasks.service';
 import { FormsModule } from '@angular/forms';
+import { ToastService, ToastType } from '../../services/toast.service';
+import { Task } from '../../model/task.type';
+import { TaskStatus } from '../../model/status.types';
 
 @Component({
   selector: 'app-modal',
@@ -10,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ModalComponent {
   tasksService = inject(TasksService);
+  toastService = inject(ToastService);
 
   @Output() close = new EventEmitter<void>();
 
@@ -25,15 +29,13 @@ export class ModalComponent {
   };
 
   saveTask = (): void => {
-    const timestamp = new Date().toISOString();
+    this.tasksService.addTask(this.description, this.taskName);
 
-    this.tasksService.addTask({
-      created: timestamp,
-      description: this.description,
-      id: this.tasksService.tasks().length + 1,
-      name: this.taskName,
-      status: 'todo',
-    });
+    this.toastService.showToast(
+      `Task created successfully - ${this.taskName}`,
+      ToastType.INFO
+    );
+
     this.close.emit();
   };
 }

@@ -1,0 +1,10 @@
+<div
+  *ngIf="toast"
+  [ngClass]="{
+    'bg-blue-500': toast.type === 'info',
+    'bg-yellow-500': toast.type === 'warning'
+  }"
+  class="absolute bottom-10 left-12 text-white px-4 py-2 bg-black rounded shadow-lg"
+>
+  {{ toast.message }}
+</div>
