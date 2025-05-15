@@ -2,7 +2,7 @@ import { Component, inject, Input, input } from '@angular/core';
 import { StatusSelection, Task } from '../../model/task.type';
 import { CommonModule } from '@angular/common';
 import { TasksService } from '../../services/tasks.service';
-import { TaskStatus } from '../../model/status.types';
+import { StatusOption, TaskStatus } from '../../model/status.types';
 import { ToastService, ToastType } from '../../services/toast.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class StatusSelectorComponent {
   tasksService = inject(TasksService);
   toastService = inject(ToastService);
 
-  statuses = StatusSelection;
+  statuses: StatusOption[] = StatusSelection;
   @Input() task!: Task;
 
   updateTaskStatus = ($event: Event) => {
@@ -28,7 +28,9 @@ export class StatusSelectorComponent {
     this.tasksService.updateTask({ ...this.task, status: newStatus });
 
     this.toastService.showToast(
-      `Task updated successfully - ${newStatus}`,
+      `Task moved to ${
+        StatusSelection.find((s) => s.id === newStatus)?.displayText
+      }`,
       ToastType.INFO
     );
   };

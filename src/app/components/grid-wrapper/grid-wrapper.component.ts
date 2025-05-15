@@ -32,21 +32,26 @@ export class GridWrapperComponent implements AfterViewInit {
   touchStartX = 0;
   touchEndX = 0;
   isDragging = false;
+  isScrolling = false;
   startScrollPosition = 0;
+  scrollTimeout: any = null;
 
   ngAfterViewInit() {
     const container = this.scrollContainer.nativeElement;
 
     container.addEventListener('touchstart', (event: TouchEvent) => {
+      if (this.isScrolling) return;
       this.touchStartX = event.touches[0].clientX;
     });
 
     container.addEventListener('touchend', (event: TouchEvent) => {
+      if (this.isScrolling) return;
       this.touchEndX = event.changedTouches[0].clientX;
       this.handleSwipe();
     });
 
     container.addEventListener('mousedown', (event: MouseEvent) => {
+      if (this.isScrolling) return;
       this.isDragging = true;
       this.touchStartX = event.clientX;
       this.startScrollPosition = container.scrollLeft;
@@ -57,9 +62,18 @@ export class GridWrapperComponent implements AfterViewInit {
     });
 
     container.addEventListener('mousemove', (event: MouseEvent) => {
-      if (this.isDragging) {
+      if (this.isDragging && !this.isScrolling) {
         container.scrollLeft =
           this.startScrollPosition - (event.clientX - this.touchStartX);
+      }
+    });
+    container.addEventListener('scroll', () => {
+      if (this.isScrolling) {
+        this.isDragging = false;
+        clearTimeout(this.scrollTimeout);
+        this.scrollTimeout = setTimeout(() => {
+          this.isScrolling = false;
+        }, 100);
       }
     });
   }
@@ -68,11 +82,12 @@ export class GridWrapperComponent implements AfterViewInit {
     const threshold = 50;
     const container = this.scrollContainer.nativeElement;
     const scrollAmount = window.innerWidth - (26 + 16) * 2;
-    console.log('scrollAmount', scrollAmount);
 
     if (this.touchEndX < this.touchStartX - threshold) {
+        this.isScrolling = true;
       container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     } else if (this.touchEndX > this.touchStartX + threshold) {
+       this.isScrolling = true;
       container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     }
   }
