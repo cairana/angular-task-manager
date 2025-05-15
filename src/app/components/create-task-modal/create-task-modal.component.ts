@@ -27,7 +27,7 @@ export class CreateTaskModalComponent {
   };
 
   saveTask = (): void => {
-    this.tasksService.addTask(this.description, this.taskName);
+    this.tasksService.addTask(this.taskName, this.description);
 
     this.toastService.showToast(
       `Task created successfully - ${this.taskName}`,

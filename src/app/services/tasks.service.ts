@@ -24,7 +24,6 @@ export class TasksService {
     this.tasksSignal.set([...this.tasksSignal(), newTask]);
   }
   updateTask(updatedTask: Task) {
-    console.log("updatedTask", updatedTask);
     this.tasksSignal.set(
       this.tasks().map((task) =>
         task.id === updatedTask.id ? updatedTask : task
