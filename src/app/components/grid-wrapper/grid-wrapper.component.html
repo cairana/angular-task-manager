@@ -1,36 +1,33 @@
-<div class="hidden sm:grid grid-cols-3 gap-4 rounded-t-sm">
+<div class="hidden sm:grid grid-cols-3 gap-4 rounded-t-lg">
   <div
-    class="snap-center min-w-full flex-none w-1/3 bg-stone-50 text-gray-700 font-semibold rounded-t-sm min-h-[200px]"
+    class="snap-center min-w-full flex-none w-1/3 bg-blue-50 border-t-4 border-blue-500 text-gray-700 font-semibold rounded-t-lg min-h-[200px]"
   >
     <span
-      class="text-xl bg-blue-600/90 block p-2 text-gray-100 text-center rounded-t-sm"
+      class="text-xl bg-blue-600/90 block p-2 text-gray-100 text-center rounded-t-md"
       >Todo</span
     >
-
     @for(task of tasksService.tasks() | filterTasks: searchTerm; track task.id){
     @if(task.status === "todo"){
-
     <app-grid-element [task]="task" />
     } }
   </div>
   <div
-    class="snap-center min-w-full flex-none w-1/3 bg-stone-100 text-gray-700 font-semibold"
+    class="snap-center min-w-full flex-none w-1/3 bg-yellow-50 border-t-4 border-yellow-500 text-gray-700 font-semibold rounded-t-lg"
   >
     <span
-      class="text-xl bg-yellow-500/90 block p-2 text-gray-100 text-center rounded-t-sm"
+      class="text-xl bg-yellow-500/90 block p-2 text-gray-100 text-center rounded-t-md"
       >In Progress</span
     >
     @for(task of tasksService.tasks() | filterTasks: searchTerm; track task.id){
     @if(task.status === "inProgress"){
-
     <app-grid-element [task]="task" />
     } }
   </div>
   <div
-    class="snap-center min-w-full flex-none w-1/3 bg-stone-50 text-gray-700 font-semibold"
+    class="snap-center min-w-full flex-none w-1/3 bg-lime-50 border-t-4 border-lime-500 text-gray-700 font-semibold rounded-t-lg"
   >
     <span
-      class="text-xl bg-lime-600/90 block p-2 text-gray-100 text-center rounded-t-sm"
+      class="text-xl bg-lime-600/90 block p-2 text-gray-100 text-center rounded-t-md"
       >Completed</span
     >
     @for(task of tasksService.tasks() | filterTasks: searchTerm; track task.id){
@@ -45,13 +42,13 @@
     #scrollContainer
     appHorizontalScroll
     [swipeThreshold]="200"
-    class="flex direction-row overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide gap-2"
+    class="flex direction-row overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide gap-4"
   >
     <div
-      class="flex flex-col snap-center bg-stone-50 text-gray-700 font-semibold w-full min-w-[80vw]"
+      class="flex flex-col snap-center bg-blue-50 border-t-4 border-blue-500 text-gray-700 font-semibold w-full min-w-[80vw] rounded-t-lg"
     >
       <span
-        class="text-xl bg-blue-600/90 block p-2 text-gray-100 text-center rounded-t-sm"
+        class="text-xl bg-blue-600/90 block p-2 text-gray-100 text-center rounded-t-md"
         >Todo</span
       >
       @for(task of tasksService.tasks()| filterTasks: searchTerm; track
@@ -60,10 +57,10 @@
       } }
     </div>
     <div
-      class="flex flex-col snap-center bg-stone-100 text-gray-700 font-semibold w-full min-w-[80vw]"
+      class="flex flex-col snap-center bg-yellow-50 border-t-4 border-yellow-500 text-gray-700 font-semibold w-full min-w-[80vw] rounded-t-lg"
     >
       <span
-        class="text-xl bg-yellow-500/90 block p-2 text-gray-100 text-center rounded-t-sm"
+        class="text-xl bg-yellow-500/90 block p-2 text-gray-100 text-center rounded-t-md"
         >In Progress</span
       >
       @for(task of tasksService.tasks()| filterTasks: searchTerm; track
@@ -72,10 +69,10 @@
       } }
     </div>
     <div
-      class="flex flex-col snap-center bg-stone-50 text-gray-700 font-semibold w-full min-w-[80vw]"
+      class="flex flex-col snap-center bg-lime-50 border-t-4 border-lime-500 text-gray-700 font-semibold w-full min-w-[80vw] rounded-t-lg"
     >
       <span
-        class="text-xl bg-lime-600/90 block p-2 text-gray-100 text-center rounded-t-sm"
+        class="text-xl bg-lime-600/90 block p-2 text-gray-100 text-center rounded-t-md"
         >Completed</span
       >
       @for(task of tasksService.tasks()| filterTasks: searchTerm; track
