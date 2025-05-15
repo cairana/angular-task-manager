@@ -2,29 +2,32 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
 
+The Task Manager project is a simple and efficient tool for managing your daily tasks. You can create, edit, and delete tasks, and organize them by status (such as To Do, In Progress, or Done). Each task displays its creation date. When deleting a task, you are prompted with a confirmation modal ("Are you sure"). Any changes you make—such as adding, editing, or deleting a task—will display a toast notification for feedback. The application also includes a search functionality to quickly find tasks. The user interface is clean, intuitive, responsive, and mobile-friendly.
+
+**Key Features:**
+- Add, edit, and delete tasks
+- Organize tasks by status (e.g., To Do, In Progress, Done)
+- Each task displays its creation date
+- Confirmation modal when deleting a task
+- Toast notifications for all changes
+- Search functionality to quickly find tasks
+- Responsive and mobile-friendly design
+
 ## Development server
+
+Before starting the development server, install dependencies:
+
+```bash
+npm install
+```
 
 To start a local development server, run:
 
 ```bash
-ng serve
+ng serve or npm start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
 
 ## Building
 
@@ -35,25 +38,3 @@ ng build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
