@@ -1,7 +1,6 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ToastService, ToastType } from '../../services/toast.service';
 import { TasksService } from '../../services/tasks.service';
-import { Task } from '../../model/task.type';
 import { DatePipe } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
 import { ModalService } from '../../services/modal.service';
@@ -20,6 +19,7 @@ export class DeleteTaskModalComponent {
   description = '';
 
   @Output() close = new EventEmitter<void>();
+  
   taskToDelete = this.modalService.taskToDelete;
 
   closeModal = (): void => {
