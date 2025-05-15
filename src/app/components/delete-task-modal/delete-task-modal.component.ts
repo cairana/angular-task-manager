@@ -38,7 +38,7 @@ export class DeleteTaskModalComponent {
       this.tasksService.deleteTask(taskId);
 
       this.toastService.showToast(
-        `Task deleted successfully - ${this.taskName}`,
+        `Task deleted successfully`,
         ToastType.INFO
       );
     }

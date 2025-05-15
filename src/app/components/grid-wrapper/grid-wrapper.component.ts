@@ -67,7 +67,8 @@ export class GridWrapperComponent implements AfterViewInit {
   handleSwipe() {
     const threshold = 50;
     const container = this.scrollContainer.nativeElement;
-    const scrollAmount = window.innerWidth;
+    const scrollAmount = window.innerWidth - (26 + 16) * 2;
+    console.log('scrollAmount', scrollAmount);
 
     if (this.touchEndX < this.touchStartX - threshold) {
       container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
