@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AddIconComponent } from '../../icons/add-icon.component';
 import { ModalService } from '../../services/modal.service';
 import { DeleteTaskModalComponent } from '../delete-task-modal/delete-task-modal.component';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-content',
@@ -20,6 +21,7 @@ import { DeleteTaskModalComponent } from '../delete-task-modal/delete-task-modal
     FormsModule,
     AddIconComponent,
     DeleteTaskModalComponent,
+    HeaderComponent,
   ],
   templateUrl: './content.component.html',
 })
@@ -29,7 +31,7 @@ export class ContentComponent {
 
   searchTerm = signal('');
 
- onClickOpenModal = () => {
+  onClickOpenModal = () => {
     this.modalService.showModal();
   };
 }

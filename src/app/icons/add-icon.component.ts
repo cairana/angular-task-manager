@@ -5,21 +5,12 @@ import { Component } from '@angular/core';
   imports: [],
 
   template: `
-    <style type="text/css">
-      .icon {
-        fill: #4b5563;
-      }
-      .icon:hover {
-        @media (width >= 40rem) {
-          fill: #ffffff;
-        }
-      }
-    </style>
 
     <svg
       id="Layer_1"
       style="enable-background:new 0 0 64 64;"
       class="h-5 w-5 icon cursor-pointer"
+      fill="currentColor"
       version="1.1"
       viewBox="0 0 64 64"
       xml:space="preserve"

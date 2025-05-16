@@ -15,6 +15,15 @@ export class HorizontalScrollDirective {
 
   constructor(private el: ElementRef<HTMLElement>) {}
 
+  @HostListener('window:resize')
+  onWindowResize() {
+    if (window.innerWidth >= 640) {
+      this.el.nativeElement.scrollLeft = 0;
+      this.el.nativeElement.style.height = '';
+    } else {
+      this.el.nativeElement.style.height = '';
+    }
+  }
   @HostListener('touchstart', ['$event'])
   onTouchStart(event: TouchEvent) {
     if (this.isScrolling) return;

@@ -1,42 +1,44 @@
-<div class="fixed inset-0 flex items-center justify-center bg-black/50">
+<div class="fixed inset-0 flex items-center justify-center bg-black/50 z-30">
   <div
     (click)="$event.stopPropagation()"
-    class="bg-white rounded-lg border-2 border-gray-300 sm:w-100"
+    class="bg-gray-900 rounded-xl border border-gray-700 shadow-xl w-full max-w-md mx-4"
   >
     <h2
-      class="text-xl bg-gray-500 block p-2 text-gray-100 text-center rounded-t-sm"
+      class="text-xl bg-gray-800 block p-4 text-gray-100 text-center rounded-t-xl font-semibold border-b border-gray-700"
     >
       Add task
     </h2>
-    <div class="p-2 m-2">
-      <p class="mb-2">
-        <span class="flex flex-col gap-2">
+    <div class="p-4">
+      <form (ngSubmit)="saveTask()" autocomplete="off">
+        <div class="flex flex-col gap-4">
           <label for="taskName" class="flex flex-col">
-            <span class="text-sm font-medium text-gray-700">Task name:</span>
+            <span class="text-sm font-medium text-gray-200 mb-1">Task name:</span>
             <input
-              class="m-1 p-1 rounded-sm border-1 border-sky-700/30 focus:border-cyan-500 focus:outline-none"
+              class="m-0 p-2 rounded-md border border-gray-700 bg-gray-800 text-gray-100 focus:border-cyan-500 focus:outline-none transition-colors"
               id="taskName"
               type="text"
               [(ngModel)]="taskName"
+              name="taskName"
+              required
             />
           </label>
           <label for="taskDescription" class="flex flex-col">
-            <span class="text-sm font-medium text-gray-700">Description:</span>
+            <span class="text-sm font-medium text-gray-200 mb-1">Description:</span>
             <textarea
               rows="5"
-              class="m-1 p-1 rounded-sm border-1 border-sky-700/30 focus:border-cyan-500 focus:outline-none"
+              class="m-0 p-2 rounded-md border border-gray-700 bg-gray-800 text-gray-100 focus:border-cyan-500 focus:outline-none transition-colors"
               id="taskDescription"
               [(ngModel)]="description"
+              name="taskDescription"
+              required
             ></textarea>
           </label>
-        </span>
-      </p>
-    </div>
-    <div class="flex justify-end">
-      <app-button [onClick]="saveTask" [buttonDisabled]="isButtonDisabled()"
-        >Save</app-button
-      >
-      <app-button [onClick]="closeModal">Close</app-button>
+        </div>
+        <div class="flex justify-end gap-2 mt-6">
+          <app-button [onClick]="saveTask" [buttonDisabled]="isButtonDisabled()">Save</app-button>
+          <app-button [onClick]="closeModal">Close</app-button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

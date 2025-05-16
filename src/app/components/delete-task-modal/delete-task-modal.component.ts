@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { ToastService, ToastType } from '../../services/toast.service';
 import { TasksService } from '../../services/tasks.service';
 import { DatePipe } from '@angular/common';
@@ -19,7 +19,7 @@ export class DeleteTaskModalComponent {
   description = '';
 
   @Output() close = new EventEmitter<void>();
-  
+
   taskToDelete = this.modalService.taskToDelete;
 
   closeModal = (): void => {
@@ -37,10 +37,7 @@ export class DeleteTaskModalComponent {
     } else {
       this.tasksService.deleteTask(taskId);
 
-      this.toastService.showToast(
-        `Task deleted successfully`,
-        ToastType.INFO
-      );
+      this.toastService.showToast(`Task deleted successfully`, ToastType.INFO);
     }
 
     this.close.emit();

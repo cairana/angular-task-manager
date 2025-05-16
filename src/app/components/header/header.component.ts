@@ -6,5 +6,5 @@ import { Component, signal } from '@angular/core';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-  title = signal('Task manager');
+  title = signal('Task Manager');
 }

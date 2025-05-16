@@ -1,5 +1,5 @@
 <select
-  class="flex text-sm text-gray-900 m-1 p-1 rounded-sm border-1 border-sky-700/30"
+  class="flex text-sm bg-gray-800 text-gray-100 m-1 px-3 py-2 rounded-md border border-gray-700 focus:border-cyan-500 focus:outline-none transition-colors"
   [value]="task.status"
   (change)="updateTaskStatus($event)"
 >
@@ -11,6 +11,5 @@
   >
     {{ status.displayText }}
   </option>
-
   }
 </select>
