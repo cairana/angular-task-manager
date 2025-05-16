@@ -25,6 +25,7 @@ Make sure you have the Angular CLI installed globally. If not, install it with:
 
 ```bash
 npm install -g @angular/cli
+```
 
 To start a local development server, run:
 
