@@ -12,7 +12,9 @@
       <form (ngSubmit)="saveTask()" autocomplete="off">
         <div class="flex flex-col gap-4">
           <label for="taskName" class="flex flex-col">
-            <span class="text-sm font-medium text-gray-200 mb-1">Task name:</span>
+            <span class="text-sm font-medium text-gray-200 mb-1"
+              >Task name:</span
+            >
             <input
               class="m-0 p-2 rounded-md border border-gray-700 bg-gray-800 text-gray-100 focus:border-cyan-500 focus:outline-none transition-colors"
               id="taskName"
@@ -23,7 +25,9 @@
             />
           </label>
           <label for="taskDescription" class="flex flex-col">
-            <span class="text-sm font-medium text-gray-200 mb-1">Description:</span>
+            <span class="text-sm font-medium text-gray-200 mb-1"
+              >Description:</span
+            >
             <textarea
               rows="5"
               class="m-0 p-2 rounded-md border border-gray-700 bg-gray-800 text-gray-100 focus:border-cyan-500 focus:outline-none transition-colors"
@@ -35,8 +39,10 @@
           </label>
         </div>
         <div class="flex justify-end gap-2 mt-6">
-          <app-button [onClick]="saveTask" [buttonDisabled]="isButtonDisabled()">Save</app-button>
           <app-button [onClick]="closeModal">Close</app-button>
+          <app-button [onClick]="saveTask" [buttonDisabled]="isButtonDisabled()"
+            >Save</app-button
+          >
         </div>
       </form>
     </div>
