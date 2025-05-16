@@ -1,9 +1,10 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
-import { ToastService, ToastType } from '../../services/toast.service';
+import { ToastService } from '../../services/toast.service';
 import { TasksService } from '../../services/tasks.service';
 import { DatePipe } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
 import { ModalService } from '../../services/modal.service';
+import { ToastType } from '../../model/toast.types';
 
 @Component({
   selector: 'app-delete-task-modal',

@@ -2,7 +2,8 @@ import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { TasksService } from '../../services/tasks.service';
 import { FormsModule } from '@angular/forms';
-import { ToastService, ToastType } from '../../services/toast.service';
+import { ToastService } from '../../services/toast.service';
+import { ToastType } from '../../model/toast.types';
 
 @Component({
   selector: 'app-create-task-modal',
