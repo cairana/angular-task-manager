@@ -1,39 +1,39 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { TasksService } from '../../services/tasks.service';
 import { FormsModule } from '@angular/forms';
+import { ToastService, ToastType } from '../../services/toast.service';
 
 @Component({
-  selector: 'app-modal',
+  selector: 'app-create-task-modal',
   templateUrl: './create-task-modal.component.html',
   imports: [ButtonComponent, FormsModule],
 })
-export class ModalComponent {
+export class CreateTaskModalComponent {
   tasksService = inject(TasksService);
-
-  @Output() close = new EventEmitter<void>();
+  toastService = inject(ToastService);
 
   taskName = '';
   description = '';
 
-  isButtonDisabled = () => {
-    return this.taskName.length === 0 || this.description.length === 0;
-  };
+  @Output() close = new EventEmitter<void>();
 
   closeModal = (): void => {
     this.close.emit();
   };
 
-  saveTask = (): void => {
-    const timestamp = new Date().toISOString();
+  isButtonDisabled = () => {
+    return this.taskName.length === 0 || this.description.length === 0;
+  };
 
-    this.tasksService.addTask({
-      created: timestamp,
-      description: this.description,
-      id: this.tasksService.tasks().length + 1,
-      name: this.taskName,
-      status: 'todo',
-    });
+  saveTask = (): void => {
+    this.tasksService.addTask(this.taskName, this.description);
+
+    this.toastService.showToast(
+      `Task created successfully - ${this.taskName}`,
+      ToastType.INFO
+    );
+
     this.close.emit();
   };
 }

@@ -6,7 +6,6 @@ import { Task } from '../../model/task.type';
   imports: [],
   standalone: true,
   templateUrl: './button.component.html',
-  styleUrl: './button.component.css',
 })
 export class ButtonComponent {
   @Input() onClick!: () => void;
@@ -18,6 +17,4 @@ export class ButtonComponent {
 
     event.preventDefault();
   }
-
-   buttonDisabled = input(false);
 }

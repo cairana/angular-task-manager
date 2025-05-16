@@ -4,15 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-close-icon',
   standalone: true,
   template: `
-    <style type="text/css">
-      .icon {
-        fill: #4b5563;
-         
-      }
-    </style>
+  
+ 
     <svg
       class="h-5 w-5 icon cursor-pointer"
       id="Layer_1"
+      fill="currentColor"
       version="1.1"
       viewBox="0 0 512 512"
       xml:space="preserve"

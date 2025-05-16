@@ -1,18 +1,30 @@
-<span class="flex m-2 align-center items-center justify-between text-center">
-  <app-button [onClick]="showModal">
-    <app-add-icon />
-    <span class="hidden sm:inline px-1"> Create task</span></app-button
-  >
-
-  <input
-    class="text-sm text-gray-900 m-1 p-1 rounded-sm border-1 border-sky-700/30 focus:border-cyan-500 focus:outline-none"
-    id="taskName"
-    type="text"
-    [(ngModel)]="searchTerm"
-    placeholder="Search tasks..."
-  />
-</span>
-<app-grid-wrapper [searchTerm]="searchTerm()" />
-<app-modal *ngIf="isModalVisible" (close)="hideModal()"
-  ><app-input
-/></app-modal>
+<div>
+  <app-header />
+  <div class="bg-gray-900 p-6 pt-18">
+    <span
+      class="flex m-2 align-center items-center justify-between text-center"
+    >
+      <app-button [onClick]="onClickOpenModal">
+        <app-add-icon />
+        <span class="hidden sm:inline px-1"> Create task</span>
+      </app-button>
+      <input
+        class="text-sm bg-gray-800 text-gray-100 m-1 p-2 rounded-md border border-gray-700 placeholder-gray-400 focus:border-cyan-500 focus:outline-none transition-colors"
+        id="taskName"
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="Search tasks..."
+      />
+    </span>
+    <app-grid-wrapper [searchTerm]="searchTerm()" />
+    <app-create-task-modal
+      *ngIf="modalService.isModalVisible()"
+      (close)="modalService.hideModal()"
+      ><app-input
+    /></app-create-task-modal>
+    <app-delete-task-modal
+      *ngIf="modalService.isDeleteModalVisible()"
+      (close)="modalService.hideDeleteModal()"
+    ></app-delete-task-modal>
+  </div>
+</div>

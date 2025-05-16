@@ -1,42 +1,38 @@
-<div class="hidden sm:grid grid-cols-3 gap-4 rounded-t-sm">
+<div class="hidden sm:grid grid-cols-3 gap-4 rounded-t-lg">
   <div
-    class="snap-center min-w-full flex-none w-1/3 bg-stone-50 text-gray-700 font-semibold rounded-t-sm min-h-[200px]"
+    class="snap-center min-w-full flex-none w-1/3 bg-gray-800 border-t-4 border-cyan-600 text-gray-100 font-semibold rounded-t-lg min-h-[200px]"
   >
     <span
-      class="text-xl bg-blue-600/90 block p-2 text-gray-100 text-center rounded-t-sm"
+      class="text-xl bg-cyan-700/90 block p-2 text-cyan-100 text-center rounded-t-md"
       >Todo</span
     >
-
     @for(task of tasksService.tasks() | filterTasks: searchTerm; track task.id){
     @if(task.status === "todo"){
-
-    <app-grid-element [task]="task" [deleteTask]="onClickDelete" [updateTask]="onClickUpdate" />
+    <app-grid-element [task]="task" />
     } }
   </div>
   <div
-    class="snap-center min-w-full flex-none w-1/3 bg-stone-100 text-gray-700 font-semibold"
+    class="snap-center min-w-full flex-none w-1/3 bg-gray-800 border-t-4 border-yellow-600 text-gray-100 font-semibold rounded-t-lg"
   >
     <span
-      class="text-xl bg-yellow-500/90 block p-2 text-gray-100 text-center rounded-t-sm"
+      class="text-xl bg-yellow-700/90 block p-2 text-yellow-100 text-center rounded-t-md"
       >In Progress</span
     >
     @for(task of tasksService.tasks() | filterTasks: searchTerm; track task.id){
     @if(task.status === "inProgress"){
-
-    <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
+    <app-grid-element [task]="task" />
     } }
   </div>
   <div
-    class="snap-center min-w-full flex-none w-1/3 bg-stone-50 text-gray-700 font-semibold"
+    class="snap-center min-w-full flex-none w-1/3 bg-gray-800 border-t-4 border-lime-600 text-gray-100 font-semibold rounded-t-lg"
   >
     <span
-      class="text-xl bg-lime-600/90 block p-2 text-gray-100 text-center rounded-t-sm"
+      class="text-xl bg-lime-700/90 block p-2 text-lime-100 text-center rounded-t-md"
       >Completed</span
     >
     @for(task of tasksService.tasks() | filterTasks: searchTerm; track task.id){
     @if(task.status === "completed"){
-
-    <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
+    <app-grid-element [task]="task" />
     } }
   </div>
 </div>
@@ -44,45 +40,44 @@
 <div class="block sm:hidden">
   <div
     #scrollContainer
-    class="flex direction-row overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide gap-2"
+    appHorizontalScroll
+    [swipeThreshold]="200"
+    class="flex direction-row overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide gap-4"
   >
     <div
-      class="flex flex-col snap-center min-w-full bg-stone-50 text-gray-700 font-semibold"
+      class="flex flex-col snap-center bg-gray-800 border-t-4 border-cyan-600 text-gray-100 font-semibold w-full min-w-[88vw] rounded-t-lg"
     >
       <span
-        class="text-xl bg-blue-600/90 min-w-full block p-2 text-gray-100 text-center rounded-t-sm"
+        class="text-xl bg-cyan-700/90 block p-2 text-cyan-100 text-center rounded-t-md"
         >Todo</span
       >
       @for(task of tasksService.tasks()| filterTasks: searchTerm; track
       task.id){ @if(task.status === "todo"){
-
-      <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
+      <app-grid-element [task]="task" />
       } }
     </div>
     <div
-      class="flex flex-col snap-center min-w-full bg-stone-100 text-gray-700 font-semibold"
+      class="flex flex-col snap-center bg-gray-800 border-t-4 border-yellow-600 text-gray-100 font-semibold w-full min-w-[88vw] rounded-t-lg"
     >
       <span
-        class="flex text-xl bg-yellow-500/90 block p-2 min-w-full text-gray-100 text-center rounded-t-sm"
+        class="text-xl bg-yellow-700/90 block p-2 text-yellow-100 text-center rounded-t-md"
         >In Progress</span
       >
       @for(task of tasksService.tasks()| filterTasks: searchTerm; track
       task.id){ @if(task.status === "inProgress"){
-
-      <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
+      <app-grid-element [task]="task" />
       } }
     </div>
     <div
-      class="flex flex-col snap-center min-h-screen min-w-full bg-stone-50 text-gray-700 font-semibold"
+      class="flex flex-col snap-center bg-gray-800 border-t-4 border-lime-600 text-gray-100 font-semibold w-full min-w-[88vw] rounded-t-lg"
     >
       <span
-        class="text-xl bg-lime-600/90 block min-w-full p-2 text-gray-100 text-center rounded-t-sm"
+        class="text-xl bg-lime-700/90 block p-2 text-lime-100 text-center rounded-t-md"
         >Completed</span
       >
       @for(task of tasksService.tasks()| filterTasks: searchTerm; track
       task.id){ @if(task.status === "completed"){
-
-      <app-grid-element [task]="task" [deleteTask]="onClickDelete" />
+      <app-grid-element [task]="task" />
       } }
     </div>
   </div>

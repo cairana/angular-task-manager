@@ -4,21 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-trash-icon',
   standalone: true,
   template: `
-    <style type="text/css">
-      .icon {
-        fill: #4b5563;
-      }
-      .icon:hover {
-        @media (width >= 40rem) {
-          fill: #ffffff;
-        }
-      }
-    </style>
     <svg
       id="Layer_1"
-      class="h-5 w-5 icon cursor-pointer" 
+      class="h-5 w-5 icon cursor-pointer"
       version="1.1"
       viewBox="0 0 64 64"
+      fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
     >
