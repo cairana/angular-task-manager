@@ -1,9 +1,10 @@
-import { Component, inject, Input, input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { StatusSelection, Task } from '../../model/task.type';
 import { CommonModule } from '@angular/common';
 import { TasksService } from '../../services/tasks.service';
 import { StatusOption, TaskStatus } from '../../model/status.types';
-import { ToastService, ToastType } from '../../services/toast.service';
+import { ToastService } from '../../services/toast.service';
+import { ToastType } from '../../model/toast.types';
 
 @Component({
   selector: 'app-status-selector',

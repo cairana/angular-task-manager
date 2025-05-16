@@ -1,19 +1,9 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  inject,
-  Input,
-  input,
-  Signal,
-  signal,
-} from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Task } from '../../model/task.type';
 import { ButtonComponent } from '../button/button.component';
 import { TrashIconComponent } from '../../icons/trash-icon.component';
 import { CommonModule, DatePipe } from '@angular/common';
 import { StatusSelectorComponent } from '../status-selector/status-selector.component';
-import { DeleteTaskModalComponent } from '../delete-task-modal/delete-task-modal.component';
 import { ModalService } from '../../services/modal.service';
 
 @Component({

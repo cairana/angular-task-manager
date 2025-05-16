@@ -3,9 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-add-icon',
   imports: [],
-
   template: `
-
     <svg
       id="Layer_1"
       style="enable-background:new 0 0 64 64;"

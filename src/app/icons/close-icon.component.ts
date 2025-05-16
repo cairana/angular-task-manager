@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-close-icon',
   standalone: true,
   template: `
-  
- 
     <svg
       class="h-5 w-5 icon cursor-pointer"
       id="Layer_1"

@@ -1,5 +1,4 @@
-import { Component, effect, Input, input } from '@angular/core';
-import { Task } from '../../model/task.type';
+import { Component, Input, input } from '@angular/core';
 
 @Component({
   selector: 'app-button',
