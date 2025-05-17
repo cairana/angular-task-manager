@@ -13,6 +13,8 @@ The Task Manager project is a simple and efficient tool for managing your daily 
 - Search functionality to quickly find tasks
 - Responsive and mobile-friendly design
 
+Check out the live demo of this project [here](https://cairana.github.io/angular-task-manager/).  
+
 ## Development server
 
 Before starting the development server, install dependencies:
@@ -30,8 +32,13 @@ npm install -g @angular/cli
 To start a local development server, run:
 
 ```bash
-ng serve or npm start
+ng serve
 ```
+or
+```bash
+npm start
+```
+
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
