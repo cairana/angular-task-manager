@@ -2,8 +2,6 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
 
-The Task Manager project is a simple and efficient tool for managing your daily tasks. You can create, edit, and delete tasks, and organize them by status (such as To Do, In Progress, or Done). Each task displays its creation date. When deleting a task, you are prompted with a confirmation modal ("Are you sure"). Any changes you make—such as adding, editing, or deleting a task—will display a toast notification for feedback. The application also includes a search functionality to quickly find tasks. The user interface is clean, intuitive, responsive, and mobile-friendly.
-
 **Key Features:**
 
 - Add, edit, and delete tasks
@@ -17,6 +15,12 @@ The Task Manager project is a simple and efficient tool for managing your daily 
 # DEMO
 
 Check out the live demo of this project [here](https://cairana.github.io/angular-task-manager/).
+
+Note to maintainers - keep demo updated by running following commands from local env:
+```bash
+ng build --output-path=dist --base-href="/angular-task-manager/"
+ngh --dir=dist/browser
+```
 
 ## Development server
 
